@@ -7,6 +7,16 @@ import java.util.Scanner;
  */
 public class App {
 
+  public static void verificarSomaPesos(int[] pesos, int quantidade) {
+    int somaPesos = 0;
+    for (int i = 0; i < quantidade; i += 1) {
+      somaPesos += pesos[i];
+    }
+    if (somaPesos != 100) {
+      System.out.println("A soma dos pesos é diferente de 100!");
+    }
+  }
+
   /**
    * Metodo main.
    */
@@ -35,6 +45,8 @@ public class App {
       int nota = Integer.parseInt(notaStr);
       notas[i - 1] = nota;
     }
+
+    App.verificarSomaPesos(pesos, quantidade);
 
     scanner.close();
   }
