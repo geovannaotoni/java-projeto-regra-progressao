@@ -35,12 +35,13 @@ public class App {
     }
     float notaFinal = resultado / 100.0f;
     if (notaFinal >= 85.0) {
-      System.out.println("Parabéns! Você alcançou " + notaFinal +
-          "%! E temos o prazer de informar que você obteve aprovação!"
+      System.out.println("Parabéns! Você alcançou " + notaFinal
+          + "%! E temos o prazer de informar que você obteve aprovação!"
       );
     } else {
-      System.out.println("Lamentamos informar que, com base na sua pontuação alcançada neste período, "
-          + notaFinal + "%, você não atingiu a pontuação mínima necessária para sua aprovação."
+      System.out.println(
+          "Lamentamos informar que, com base na sua pontuação alcançada neste período, "
+              + notaFinal + "%, você não atingiu a pontuação mínima necessária para sua aprovação."
       );
     }
   }
