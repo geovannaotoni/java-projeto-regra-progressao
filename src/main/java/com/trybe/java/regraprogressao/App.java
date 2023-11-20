@@ -7,6 +7,12 @@ import java.util.Scanner;
  */
 public class App {
 
+  /**
+   * Verificar soma pesos.
+   *
+   * @param pesos      os pesos
+   * @param quantidade a quantidade de elementos no array
+   */
   public static void verificarSomaPesos(int[] pesos, int quantidade) {
     int somaPesos = 0;
     for (int i = 0; i < quantidade; i += 1) {
