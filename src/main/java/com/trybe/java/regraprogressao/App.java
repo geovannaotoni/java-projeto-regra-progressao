@@ -13,13 +13,35 @@ public class App {
    * @param pesos      os pesos
    * @param quantidade a quantidade de elementos no array
    */
-  public static void verificarSomaPesos(int[] pesos, int quantidade) {
+  public static int verificarSomaPesos(int[] pesos, int quantidade) {
     int somaPesos = 0;
     for (int i = 0; i < quantidade; i += 1) {
       somaPesos += pesos[i];
     }
-    if (somaPesos != 100) {
-      System.out.println("A soma dos pesos é diferente de 100!");
+    return somaPesos;
+  }
+
+  /**
+   * Calcular nota final.
+   *
+   * @param pesos      os pesos
+   * @param notas      as notas
+   * @param quantidade a quantidade
+   */
+  public static void calcularNotaFinal(int[] pesos, int[] notas, int quantidade) {
+    int resultado = 0;
+    for (int i = 0; i < quantidade; i += 1) {
+      resultado += pesos[i] * notas [i];
+    }
+    float notaFinal = resultado / 100.0f;
+    if (notaFinal >= 85.0) {
+      System.out.println("Parabéns! Você alcançou " + notaFinal +
+          "%! E temos o prazer de informar que você obteve aprovação!"
+      );
+    } else {
+      System.out.println("Lamentamos informar que, com base na sua pontuação alcançada neste período, "
+          + notaFinal + "%, você não atingiu a pontuação mínima necessária para sua aprovação."
+      );
     }
   }
 
@@ -52,7 +74,13 @@ public class App {
       notas[i - 1] = nota;
     }
 
-    App.verificarSomaPesos(pesos, quantidade);
+    int somaPesos = App.verificarSomaPesos(pesos, quantidade);
+    if (somaPesos != 100) {
+      System.out.println("A soma dos pesos é diferente de 100!");
+      return;
+    }
+
+    App.calcularNotaFinal(pesos, notas, quantidade);
 
     scanner.close();
   }
