@@ -6,14 +6,15 @@ import java.util.Scanner;
  * App.
  */
 public class App {
+  private static String[] nomes;
+  private static int[] pesos;
+  private static int[] notas;
+  private static int quantidade;
 
   /**
    * Verificar soma pesos.
-   *
-   * @param pesos      os pesos
-   * @param quantidade a quantidade de elementos no array
    */
-  public static int verificarSomaPesos(int[] pesos, int quantidade) {
+  public static int verificarSomaPesos() {
     int somaPesos = 0;
     for (int i = 0; i < quantidade; i += 1) {
       somaPesos += pesos[i];
@@ -23,12 +24,8 @@ public class App {
 
   /**
    * Calcular nota final.
-   *
-   * @param pesos      os pesos
-   * @param notas      as notas
-   * @param quantidade a quantidade
    */
-  public static void calcularNotaFinal(int[] pesos, int[] notas, int quantidade) {
+  public static void calcularNotaFinal() {
     int resultado = 0;
     for (int i = 0; i < quantidade; i += 1) {
       resultado += pesos[i] * notas [i];
@@ -54,10 +51,10 @@ public class App {
     System.out.println("Digite a quantidade de atividades para cadastrar: ");
     String quantidadeStr = scanner.nextLine();
 
-    int quantidade = Integer.parseInt(quantidadeStr);
-    String[] nomes = new String[quantidade];
-    int[] pesos = new int[quantidade];
-    int[] notas = new int[quantidade];
+    quantidade = Integer.parseInt(quantidadeStr);
+    nomes = new String[quantidade];
+    pesos = new int[quantidade];
+    notas = new int[quantidade];
 
     for (int i = 1; i <= quantidade; i += 1) {
       System.out.println("Digite o nome da atividade " + i + ":");
@@ -75,13 +72,13 @@ public class App {
       notas[i - 1] = nota;
     }
 
-    int somaPesos = App.verificarSomaPesos(pesos, quantidade);
+    int somaPesos = App.verificarSomaPesos();
     if (somaPesos != 100) {
       System.out.println("A soma dos pesos é diferente de 100!");
       return;
     }
 
-    App.calcularNotaFinal(pesos, notas, quantidade);
+    App.calcularNotaFinal();
 
     scanner.close();
   }
